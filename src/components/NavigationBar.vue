@@ -43,6 +43,15 @@ h2 {
   display: flex;
   gap: 8px;
 }
+@media screen and (max-width: 670px) {
+  .navigation-bar {
+    justify-content: center;
+    padding: 0 32px;
+  }
+  .nav-links {
+    display: none;
+  }
+}
 .link {
   border: 1px solid var(--color-link);
   border-radius: 6px;
