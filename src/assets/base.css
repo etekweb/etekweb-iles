@@ -38,6 +38,8 @@
   --color-link: #0062ff;
   --color-link-btn: #00658e;
   --color-link-btn-inverse: var(--vt-c-white);
+
+  --color-divider: #eeeeee;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,6 +57,8 @@
     --color-link: #0087bd;
     --color-link-btn: #7cccfd;
     --color-link-btn-inverse: var(--vt-c-black);
+
+    --color-divider: #2b2b2b;
   }
 }
 
