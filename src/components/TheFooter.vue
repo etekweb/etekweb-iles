@@ -3,9 +3,9 @@
 </script>
 
 <template>
-  <div class="footer">
+  <footer class="footer">
     Made with 💙 by Ethan Matzdorf
-  </div>
+  </footer>
 </template>
 
 <style lang="scss" scoped>

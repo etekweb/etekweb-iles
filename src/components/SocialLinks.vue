@@ -3,11 +3,11 @@
 </script> -->
 
 <template>
-  <div class="socials">
+  <section class="socials">
     <h2>Find me on</h2>
     <div class="social-links">
       <div class="group">
-        <p>Personal</p>
+        <h3>Personal</h3>
         <a href="https://www.facebook.com/ethan.matzdorf" target="_blank">
           <img src="@/assets/social-logos/facebook.png" alt="Facebook link" class="social-link" />
         </a>
@@ -20,7 +20,7 @@
       </div>
       <div class="vertical-divider" />
       <div class="group">
-        <p>Professional</p>
+        <h3>Professional</h3>
         <a href="https://www.linkedin.com/in/ethan-matzdorf-9493b4137" target="_blank">
           <img src="@/assets/social-logos/linkedin.png" alt="Linkedin link" class="social-link" />
         </a>
@@ -29,7 +29,7 @@
         </a>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>
@@ -86,7 +86,7 @@
       height: 70px;
     }
 
-    p {
+    h3 {
       width: 90px;
       text-align: right;
       font-size: 16px;
@@ -109,7 +109,7 @@
         justify-content: center;
         width: 100%;
         grid-template-columns: repeat(auto-fill, 70px);
-        p {
+        h3 {
           grid-column: 1 / -1;
           width: 100%;
           text-align: center;

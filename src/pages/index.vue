@@ -4,7 +4,7 @@
 
 <template>
   <div class="index">
-    <div class="hero">
+    <section class="hero">
       <div class="lhs">
         <h1>Hello, World!</h1>
         <p>My name is Ethan Matzdorf.<br />I was born and raised in Cloquet, MN.</p>
@@ -20,12 +20,12 @@
         <RouterLink class="link-btn" to="/about">More About Me</RouterLink>
       </div>
       <img src="@/assets/hero.jpeg" alt="Picture of Ethan Matzdorf standing in the woods" />
-    </div>
+    </section>
     <SocialLinks />
-    <div class="contact-cta">
+    <section class="contact-cta">
       <h2>Want to connect?</h2>
       <RouterLink class="link-btn major" to="/contact">Contact Me</RouterLink>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -43,6 +43,9 @@
     justify-content: center;
     text-align: right;
     gap: 20px;
+    h1 {
+      font-size: 32px;
+    }
     .link {
       background-color: rgba(0,0,0,0);
       color: var(--color-link);
