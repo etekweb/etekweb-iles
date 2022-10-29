@@ -41,7 +41,9 @@
   --color-link-btn: #00658e;
   --color-link-btn-inverse: var(--vt-c-white);
 
-  --color-divider: #f7f7f7;
+  --color-section-overlay: #f7f7f7;
+  --color-navbar: #c8dae8;
+  --color-navbar-title: var(--vt-c-black);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -60,7 +62,9 @@
     --color-link-btn: #7cccfd;
     --color-link-btn-inverse: var(--vt-c-black);
 
-    --color-divider: #2b2b2b;
+    --color-section-overlay: #2b2b2b;
+    --color-navbar: #475057;
+    --color-navbar-title: var(--vt-c-white);
   }
 }
 

@@ -7,7 +7,7 @@
     <div class="hero">
       <div class="lhs">
         <h1>Hello, World!</h1>
-        <p>My name is Ethan Matzdorf. I was born and raised in Cloquet, MN.</p>
+        <p>My name is Ethan Matzdorf.<br />I was born and raised in Cloquet, MN.</p>
         <p>
           From a young age, I have taken great interest in technology in various
           forms, exploring and learning about all of the many possibilities they
@@ -23,7 +23,7 @@
     </div>
     <SocialLinks />
     <div class="contact-cta">
-      <h2>Want to Connect?</h2>
+      <h2>Want to connect?</h2>
       <RouterLink class="link-btn major" to="/contact">Contact Me</RouterLink>
     </div>
   </div>
@@ -36,7 +36,7 @@
   gap: 5vw;
   padding: 32px 0;
   .lhs {
-    max-width: 400px;
+    max-width: 380px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -53,6 +53,7 @@
   }
   img {
     width: 320px;
+    max-width: 60vw;
   }
   @media screen and (max-width: 670px) {
     flex-direction: column;

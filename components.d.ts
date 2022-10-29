@@ -18,6 +18,7 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     SocialLinks: typeof import('./src/components/SocialLinks.vue')['default']
     SupportIcon: typeof import('./src/components/icons/SupportIcon.vue')['default']
+    TheFooter: typeof import('./src/components/TheFooter.vue')['default']
     ToolingIcon: typeof import('./src/components/icons/ToolingIcon.vue')['default']
     Welcome: typeof import('./src/components/Welcome.vue')['default']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']

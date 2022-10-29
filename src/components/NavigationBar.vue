@@ -22,12 +22,6 @@
   width: 100%;
   height: 60px;
   background-color: var(--color-navbar);
-  --color-navbar: #c8dae8;
-  --color-h2: var(--vt-c-black);
-  @media (prefers-color-scheme: dark) {
-    --color-navbar: #475057;
-    --color-h2: var(--vt-c-white);
-  }
 }
 .navigation-bar {
   max-width: var(--width-constraint);
@@ -39,7 +33,7 @@
   justify-content: space-between;
 }
 h2 {
-  color: var(--color-h2);
+  color: var(--color-navbar-title);
   padding: 0 4px;
 }
 .nav-links {

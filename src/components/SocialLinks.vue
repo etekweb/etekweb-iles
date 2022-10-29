@@ -4,7 +4,7 @@
 
 <template>
   <div class="socials">
-    <p>Find me on</p>
+    <h2>Find me on</h2>
     <div class="social-links">
       <div class="group">
         <p>Personal</p>
@@ -34,7 +34,7 @@
 
 <style lang="scss" scoped>
 .socials {
-  background-color: var(--color-divider);
+  background-color: var(--color-section-overlay);
   padding: 24px 0;
   display: flex;
   flex-direction: column;
@@ -47,8 +47,8 @@
     box-shadow: 0px 0px 9px rgba(83, 83, 83, 0.6);
   }
 
-  p {
-    font-size: 32px;
+  h2 {
+    // font-size: 24px;
     margin-bottom: 16px;
   }
 
@@ -59,18 +59,27 @@
     gap: 16px;
 
     .group {
-      width: 350px;
+      width: 100%;
       display: flex;
       align-items: center;
+      justify-content: start;
       gap: 16px;
     }
 
-    a:hover {
-      background-color: unset;
+    .vertical-divider {
+      width: 1px;
+      margin: 0 8px;
+      height: 78px;
+      opacity: 0.65;
+      background-color: var(--color-text);
+      flex-shrink: 0;
     }
 
     .social-link {
       margin-top: 4px;
+    }
+    a:hover {
+      background-color: unset;
     }
 
     img {
@@ -78,7 +87,9 @@
     }
 
     p {
-      font-size: 24px;
+      width: 90px;
+      text-align: right;
+      font-size: 16px;
       margin-bottom: 2px;
     }
 
@@ -89,14 +100,22 @@
         display: none;
       }
     }
-  }
 
-  .vertical-divider {
-    width: 1px;
-    margin: 0 8px;
-    height: 78px;
-    opacity: 0.65;
-    background-color: var(--color-text);
+    @media screen and (max-width: 450px) {
+      width: 100%;
+      padding: 0 32px;
+      .group {
+        display: grid;
+        justify-content: center;
+        width: 100%;
+        grid-template-columns: repeat(auto-fill, 70px);
+        p {
+          grid-column: 1 / -1;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
   }
 }
 </style>

@@ -3,6 +3,7 @@
   <main>
     <slot />
   </main>
+  <TheFooter />
 </template>
 
 <style>
