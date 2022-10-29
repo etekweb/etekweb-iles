@@ -7,39 +7,24 @@
     <div class="hero">
       <div class="lhs">
         <h1>Hello, World!</h1>
-        <p>My name is Ethan Matzdorf.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis gravida vulputate. Fusce gravida congue
-        dolor.</p>
+        <p>My name is Ethan Matzdorf. I was born and raised in Cloquet, MN.</p>
+        <p>
+          From a young age, I have taken great interest in technology in various
+          forms, exploring and learning about all of the many possibilities they
+          contain.
+        </p>
+        <p>
+          I am currently working at 24G, a digital experience agency, as a JavaScript
+          developer.
+        </p>
         <RouterLink class="link-btn" to="/about">More About Me</RouterLink>
       </div>
       <img src="@/assets/hero.jpeg" alt="Picture of Ethan Matzdorf standing in the woods" />
     </div>
-    <div class="socials">
-      <p>Find me on</p>
-      <div class="social-links">
-        <div class="group">
-          <p>Personal</p>
-          <a href="https://www.facebook.com/ethan.matzdorf" target="_blank">
-            <img src="@/assets/social-logos/facebook.png" alt="Facebook link" class="social-link" />
-          </a>
-          <a href="https://www.instagram.com/ethan_m218" target="_blank">
-            <img src="@/assets/social-logos/instagram.png" alt="Instagram link" class="social-link" />
-          </a>
-          <a href="https://www.youtube.com/@etekweb" target="_blank">
-            <img src="@/assets/social-logos/youtube.png" alt="YouTube link" class="social-link" />
-          </a>
-        </div>
-        <div class="vertical-divider" />
-        <div class="group">
-          <p>Professional</p>
-          <a href="https://www.linkedin.com/in/ethan-matzdorf-9493b4137" target="_blank">
-            <img src="@/assets/social-logos/linkedin.png" alt="Linkedin link" class="social-link" />
-          </a>
-          <a href="https://github.com/etekweb" target="_blank">
-            <img src="@/assets/social-logos/github.png" alt="GitHub link" class="social-link" />
-          </a>
-        </div>
-      </div>
+    <SocialLinks />
+    <div class="contact-cta">
+      <h2>Want to Connect?</h2>
+      <RouterLink class="link-btn major" to="/contact">Contact Me</RouterLink>
     </div>
   </div>
 </template>
@@ -78,58 +63,11 @@
     }
   }
 }
-.socials {
-  background-color: var(--color-divider);
-  padding: 16px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 0px 9px rgba(213, 213, 213, 0.6);
-  @media (prefers-color-scheme: dark) {
-    box-shadow: 0px 0px 9px rgba(83, 83, 83, 0.6);
-  }
-  p {
-    font-size: 32px;
+.contact-cta {
+  padding: 32px 0;
+  text-align: center;
+  h2 {
     margin-bottom: 16px;
-  }
-  .social-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    .group {
-      width: 350px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    a:hover {
-      background-color: unset;
-    }
-    .social-link {
-      margin-top: 4px;
-    }
-    img {
-      height: 70px;
-    }
-    p {
-      font-size: 24px;
-      margin-bottom: 2px;
-    }
-    @media screen and (max-width: 670px) {
-      flex-direction: column;
-      .vertical-divider {
-        display: none;
-      }
-    }
-  }
-  .vertical-divider {
-    width: 1px;
-    margin: 0 8px;
-    height: 78px;
-    opacity: 0.65;
-    background-color: var(--color-text);
   }
 }
 </style>
