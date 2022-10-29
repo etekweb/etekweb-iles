@@ -14,5 +14,8 @@
     "iles": "^0.8.6",
     "typescript": "^4.5",
     "vue-tsc": "^0.38"
+  },
+  "dependencies": {
+    "sass": "^1.55.0"
   }
 }
