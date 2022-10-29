@@ -42,16 +42,15 @@
     align-items: flex-end;
     justify-content: center;
     text-align: right;
-    gap: 20px;
     h1 {
       font-size: 32px;
+      margin: 0 0 10px 0;
     }
-    .link {
-      background-color: rgba(0,0,0,0);
-      color: var(--color-link);
-      border: 1px solid var(--color-link);
-      border-radius: 6px;
-      padding: 4px 8px;
+    p {
+      margin: 10px 0;
+    }
+    .link-btn {
+      margin-top: 10px;
     }
   }
   img {
@@ -71,7 +70,7 @@
   padding: 48px 0;
   text-align: center;
   h2 {
-    margin-bottom: 16px;
+    margin: 0 0 16px 0;
   }
 }
 </style>

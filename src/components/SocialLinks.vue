@@ -49,7 +49,7 @@
 
   h2 {
     // font-size: 24px;
-    margin-bottom: 16px;
+    margin: 0 0 16px 0;
   }
 
   .social-links {
@@ -91,7 +91,7 @@
       width: 90px;
       text-align: right;
       font-size: 16px;
-      margin-bottom: 2px;
+      margin: 0 0 2px 0;
     }
 
     @media screen and (max-width: 850px) {

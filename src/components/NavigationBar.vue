@@ -1,17 +1,48 @@
-<!-- <script lang="ts" setup>
-
-</script> -->
+<script lang="ts" setup>
+const links = [
+  {
+    path: '/about',
+    name: 'About',
+    enabled: true
+  },
+  {
+    path: '/projects',
+    name: 'Projects',
+    enabled: false
+  },
+  {
+    path: '/services',
+    name: 'Services',
+    enabled: false
+  },
+  {
+    path: '/blog',
+    name: 'Blog',
+    enabled: false
+  },
+  {
+    path: '/contact',
+    name: 'Contact Me',
+    enabled: true
+  },
+]
+</script>
 
 <template>
   <div class="navigation-wrap">
     <nav class="navigation-bar" role="navigation">
       <RouterLink to="/"><h2>Ethan Matzdorf</h2></RouterLink>
       <div class="nav-links">
-        <RouterLink class="link-btn" to="/about">About</RouterLink>
-        <!-- <RouterLink class="link-btn" to="/projects">Projects</RouterLink>
-        <RouterLink class="link-btn" to="/services">Services</RouterLink>
-        <RouterLink class="link-btn" to="/blog">Blog</RouterLink> -->
-        <RouterLink class="link-btn major" to="/contact">Contact Me</RouterLink>
+        <RouterLink
+          v-for="link of links"
+          v-show="link.enabled"
+          :to="link.path"
+          class="link-btn"
+          :class="{major: $route.path === link.path}"
+          :key="link.path"
+        >
+          {{ link.name }}
+        </RouterLink>
       </div>
     </nav>
   </div>
@@ -35,6 +66,7 @@
 h2 {
   color: var(--color-navbar-title);
   padding: 0 4px;
+  margin: 0;
 }
 .nav-links {
   display: flex;
