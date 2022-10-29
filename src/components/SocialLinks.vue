@@ -53,7 +53,8 @@
   }
 
   .social-links {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 17px 1fr;
     align-items: center;
     justify-content: center;
     gap: 16px;
@@ -94,7 +95,7 @@
     }
 
     @media screen and (max-width: 850px) {
-      flex-direction: column;
+      grid-template-columns: 1fr;
 
       .vertical-divider {
         display: none;

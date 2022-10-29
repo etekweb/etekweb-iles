@@ -34,7 +34,7 @@
   display: flex;
   justify-content: center;
   gap: 5vw;
-  padding: 32px 0;
+  padding-bottom: 32px;
   .lhs {
     max-width: 380px;
     display: flex;
@@ -68,7 +68,7 @@
   }
 }
 .contact-cta {
-  padding: 32px 0;
+  padding: 48px 0;
   text-align: center;
   h2 {
     margin-bottom: 16px;

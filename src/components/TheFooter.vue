@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: var(--color-navbar);
+  background-color: var(--color-section-overlay);
   color: var(--color-navbar-title);
   .heart {
     margin: 0 4px;
