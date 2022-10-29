@@ -17,21 +17,28 @@
     <div class="socials">
       <p>Find me on</p>
       <div class="social-links">
-        <p>Personal</p>
-        <a href="https://www.facebook.com/ethan.matzdorf" target="_blank">
-          <img src="@/assets/social-logos/facebook.png" alt="Facebook link" class="social-link" />
-        </a>
-        <a href="https://www.instagram.com/ethan_m218" target="_blank">
-          <img src="@/assets/social-logos/instagram.png" alt="Instagram link" class="social-link" />
-        </a>
+        <div class="group">
+          <p>Personal</p>
+          <a href="https://www.facebook.com/ethan.matzdorf" target="_blank">
+            <img src="@/assets/social-logos/facebook.png" alt="Facebook link" class="social-link" />
+          </a>
+          <a href="https://www.instagram.com/ethan_m218" target="_blank">
+            <img src="@/assets/social-logos/instagram.png" alt="Instagram link" class="social-link" />
+          </a>
+          <a href="https://www.youtube.com/@etekweb" target="_blank">
+            <img src="@/assets/social-logos/youtube.png" alt="YouTube link" class="social-link" />
+          </a>
+        </div>
         <div class="vertical-divider" />
-        <p>Professional</p>
-        <a href="https://www.linkedin.com/in/ethan-matzdorf-9493b4137" target="_blank">
-          <img src="@/assets/social-logos/linkedin.png" alt="Linkedin link" class="social-link" />
-        </a>
-        <a href="https://github.com/etekweb" target="_blank">
-          <img src="@/assets/social-logos/github.png" alt="GitHub link" class="social-link" />
-        </a>
+        <div class="group">
+          <p>Professional</p>
+          <a href="https://www.linkedin.com/in/ethan-matzdorf-9493b4137" target="_blank">
+            <img src="@/assets/social-logos/linkedin.png" alt="Linkedin link" class="social-link" />
+          </a>
+          <a href="https://github.com/etekweb" target="_blank">
+            <img src="@/assets/social-logos/github.png" alt="GitHub link" class="social-link" />
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -62,6 +69,14 @@
   img {
     width: 320px;
   }
+  @media screen and (max-width: 670px) {
+    flex-direction: column;
+    align-items: center;
+    .lhs {
+      align-items: center;
+      text-align: center;
+    }
+  }
 }
 .socials {
   background-color: var(--color-divider);
@@ -83,6 +98,15 @@
     align-items: center;
     justify-content: center;
     gap: 16px;
+    .group {
+      width: 350px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    a:hover {
+      background-color: unset;
+    }
     .social-link {
       margin-top: 4px;
     }
@@ -92,6 +116,12 @@
     p {
       font-size: 24px;
       margin-bottom: 2px;
+    }
+    @media screen and (max-width: 670px) {
+      flex-direction: column;
+      .vertical-divider {
+        display: none;
+      }
     }
   }
   .vertical-divider {
