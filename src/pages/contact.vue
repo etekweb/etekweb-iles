@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { VueRecaptcha } from 'vue-recaptcha';
 import { computed, ref } from 'vue';
 
 const isDarkMode = computed(() => {
@@ -65,10 +66,10 @@ async function handleSubmit(event: Event) {
       <input type="email" name="_replyto" id="email-address" required>
       <label for="message">Your Message</label>
       <textarea rows="8" name="message" id="message" required></textarea>
-      <div
+      <VueRecaptcha
         class="g-recaptcha"
-        data-sitekey="6LfCCLUUAAAAADRkxjo3gHcVXlZGouubHmdEpxYa"
-        :data-theme="isDarkMode ? 'dark' : 'light'"
+        sitekey="6LfCCLUUAAAAADRkxjo3gHcVXlZGouubHmdEpxYa"
+        :theme="isDarkMode ? 'dark' : 'light'"
       />
       <button class="link-btn major" type="submit">Submit</button>
     </form>
@@ -89,6 +90,9 @@ async function handleSubmit(event: Event) {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 16px 32px;
+  @media screen and (max-width: 670px) {
+    grid-template-columns: 1fr;
+  }
   h1 {
     grid-column: 1 / 3;
     margin-bottom: 0;
@@ -120,7 +124,7 @@ async function handleSubmit(event: Event) {
       justify-self: end;
     }
     .g-recaptcha {
-      margin-right: -1px;
+      margin-right: -2.5px;
     }
     button {
       font-size: 16px;
@@ -132,14 +136,18 @@ async function handleSubmit(event: Event) {
   grid-column: 1 / 2;
 }
 
-.link-btn {
-  background-color: unset;
-}
 .calendar-info {
   grid-column: 2 / 3;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
+  .link-btn {
+    background-color: unset;
+  }
+  @media screen and (max-width: 670px) {
+    grid-column: 1 / 2;
+    align-items: center
+  }
 }
 </style>

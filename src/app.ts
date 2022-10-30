@@ -9,13 +9,6 @@ export default defineApp({
           content: "width=device-width,initial-scale=1,maximum-scale=1",
         },
       ],
-      script: [
-        {
-          src: "https://www.google.com/recaptcha/api.js",
-          async: true,
-          defer: true,
-        },
-      ],
     };
   },
 });

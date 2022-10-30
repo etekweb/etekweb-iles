@@ -16,6 +16,7 @@
     "vue-tsc": "^0.38"
   },
   "dependencies": {
-    "sass": "^1.55.0"
+    "sass": "^1.55.0",
+    "vue-recaptcha": "^2.0.3"
   }
 }
