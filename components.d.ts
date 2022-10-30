@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     CommunityIcon: typeof import('./src/components/icons/CommunityIcon.vue')['default']
+    ContactForm: typeof import('./src/components/ContactForm.vue')['default']
     DocumentationIcon: typeof import('./src/components/icons/DocumentationIcon.vue')['default']
     EcosystemIcon: typeof import('./src/components/icons/EcosystemIcon.vue')['default']
     FrameworkLink: typeof import('./src/components/FrameworkLink.vue')['default']
