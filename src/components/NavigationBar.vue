@@ -1,6 +1,11 @@
 <script lang="ts" setup>
 const links = [
   {
+    path: '/',
+    name: 'Home',
+    enabled: true
+  },
+  {
     path: '/about',
     name: 'About',
     enabled: true
@@ -37,7 +42,7 @@ const links = [
           v-for="link of links"
           v-show="link.enabled"
           :to="link.path"
-          class="link-btn"
+          class="link"
           :class="{major: $route.path === link.path}"
           :key="link.path"
         >
@@ -70,7 +75,7 @@ h2 {
 }
 .nav-links {
   display: flex;
-  gap: 8px;
+  gap: 16px;
 }
 @media screen and (max-width: 670px) {
   .navigation-bar {

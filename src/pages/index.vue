@@ -13,14 +13,14 @@
           I am currently working at 24G, a digital experience agency, as a JavaScript
           developer.
         </p>
-        <RouterLink class="link-btn" to="/about">More About Me</RouterLink>
+        <RouterLink class="link" to="/about">More About Me</RouterLink>
       </div>
       <img src="@/assets/hero.jpeg" alt="Picture of Ethan Matzdorf standing in the woods" />
     </section>
     <SocialLinks />
     <section class="contact-cta">
       <h2>Want to connect?</h2>
-      <RouterLink class="link-btn major" to="/contact">Contact Me</RouterLink>
+      <RouterLink class="link" to="/contact">Contact Me</RouterLink>
     </section>
   </div>
 </template>
@@ -45,7 +45,7 @@
     p {
       margin: 10px 0;
     }
-    .link-btn {
+    .link {
       margin-top: 10px;
     }
   }

@@ -108,13 +108,20 @@ p {
   }
 }
 
-.link-btn {
+.link {
+  color: var(--color-link-btn);
+  text-decoration: underline;
+}
+.link.major {
+  font-weight: bold;
+}
+.btn {
   color: var(--color-link-btn);
   border: 1px solid var(--color-link-btn);
   border-radius: 6px;
   padding: 4px 8px;
 }
-.link-btn.major {
+.btn.major {
   background-color: var(--color-link-btn);
   color: var(--color-link-btn-inverse);
 }

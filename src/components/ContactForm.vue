@@ -62,12 +62,12 @@ async function handleSubmit(event: Event) {
     <textarea rows="8" name="message" id="message" required></textarea>
     <VueRecaptcha class="g-recaptcha" sitekey="6LfCCLUUAAAAADRkxjo3gHcVXlZGouubHmdEpxYa"
       :theme="isDarkMode ? 'dark' : 'light'" />
-    <button class="link-btn major" type="submit">Submit</button>
+    <button class="btn major" type="submit">Submit</button>
   </form>
   <div v-if="status" class="status">
     <h2>{{ success ? 'Form submitted!' : 'Sorry, there was an error.' }}</h2>
     <p>{{ status }}</p>
-    <button v-if="success" class="link-btn" @click="status = ''">Back to Form</button>
+    <button v-if="success" class="btn" @click="status = ''">Back to Form</button>
   </div>
 </template>
 

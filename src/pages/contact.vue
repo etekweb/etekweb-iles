@@ -13,7 +13,7 @@
     </div>
     <div class="calendar-info" v-show="false">
       Looking to set a meeting?
-      <button class="link-btn">View Free/Busy Calendar</button>
+      <button class="btn">View Free/Busy Calendar</button>
     </div>
   </div>
 </template>
@@ -50,7 +50,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  .link-btn {
+  .btn {
     background-color: unset;
   }
   @media screen and (max-width: 670px) {
