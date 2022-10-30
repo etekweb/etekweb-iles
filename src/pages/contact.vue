@@ -1,15 +1,3 @@
-<script setup lang="ts">
-import { ref } from 'vue';
-
-const success = ref(false);
-const status = ref('');
-
-function updateStatus(o: {success: boolean, status: string}) {
-  success.value = o.success;
-  status.value = o.status;
-}
-</script>
-
 <template>
   <div class="contact-me">
     <h1>Contact Me</h1>
@@ -20,11 +8,8 @@ function updateStatus(o: {success: boolean, status: string}) {
       Feel free to reach out about anything here, be it questions, feedback, business opportunities, or just wanting to connect.
       I'll get back to you as soon as I can.
     </p>
-    <ContactForm v-if="!success" @status-update="updateStatus" />
-    <div v-if="status" class="status">
-      <h2>{{ success ? 'Form submitted!' : 'Sorry, there was an error.' }}</h2>
-      <p>{{ status }}</p>
-      <button v-if="success" class="link-btn" @click="status = ''">Back to Form</button>
+    <div class="contact-form">
+      <ContactForm client:idle />
     </div>
     <div class="calendar-info" v-show="false">
       Looking to set a meeting?
@@ -49,6 +34,10 @@ function updateStatus(o: {success: boolean, status: string}) {
     grid-column: 1 / 2;
     margin: 0;
   }
+}
+
+.contact-form {
+  grid-column: 1 / 2;
 }
 
 .status {

@@ -1,7 +1,3 @@
-<!-- <script lang="ts" setup>
-
-</script> -->
-
 <template>
   <section class="socials">
     <h2>Find me on</h2>

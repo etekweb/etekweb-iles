@@ -2,16 +2,21 @@
 import { VueRecaptcha } from 'vue-recaptcha';
 import { computed, ref } from 'vue';
 
-const emit = defineEmits(['statusUpdate']);
+const success = ref(false);
+const status = ref('');
 
 const isDarkMode = computed(() => {
-  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (typeof window !== "undefined") {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  return false;
 });
 
 const form = ref<HTMLFormElement>();
 async function handleSubmit(event: Event) {
   event.preventDefault();
-  emit('statusUpdate', { success: false, status: '' });
+  success.value = false;
+  status.value = '';
   const target = event.target as HTMLFormElement;
   const data = new FormData(target);
   fetch(target.action, {
@@ -22,21 +27,21 @@ async function handleSubmit(event: Event) {
     }
   }).then(response => {
     if (response.ok) {
-      emit('statusUpdate', { success: true, status: 'Thanks for your submission!' });
+      success.value = true;
+      status.value = 'Thanks for your submission!';
       form?.value?.reset()
     } else {
+      success.value = false;
+      status.value = 'Please confirm the above form is filled out completely, then try again.';
       response.json().then(data => {
         if (Object.hasOwn(data, 'errors')) {
-          const error = data["errors"].map((error: any) => error["message"]).join(", ")
-          emit('statusUpdate', { success: false, status: error });
-        } else {
-          const error = "Please confirm the above form is filled out completely, then try again."
-          emit('statusUpdate', { success: false, status: error });
+          status.value = data["errors"].map((error: any) => error["message"]).join(", ");
         }
       })
     }
   }).catch(error => {
-    emit('statusUpdate', { success: false, status: 'Please check your Internet connection and try again.' });
+    success.value = false;
+    status.value = 'Please check your Internet connection and try again.';
   });
 }
 </script>
@@ -59,11 +64,15 @@ async function handleSubmit(event: Event) {
       :theme="isDarkMode ? 'dark' : 'light'" />
     <button class="link-btn major" type="submit">Submit</button>
   </form>
+  <div v-if="status" class="status">
+    <h2>{{ success ? 'Form submitted!' : 'Sorry, there was an error.' }}</h2>
+    <p>{{ status }}</p>
+    <button v-if="success" class="link-btn" @click="status = ''">Back to Form</button>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 .contact-form {
-  grid-column: 1 / 2;
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 16px;
