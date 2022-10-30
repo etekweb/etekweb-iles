@@ -20,8 +20,9 @@ main {
   float: right;
   margin-left: 16px;
   width: 450px;
-  @media screen and (max-width: var(--width-constraint)) {
+  @media screen and (max-width: 800px) {
     float: unset;
+    margin-left: unset;
     max-width: 80vw;
   }
 }
