@@ -45,6 +45,13 @@ async function handleSubmit(event: Event) {
 <template>
   <div class="contact-me">
     <h1>Contact Me</h1>
+    <p>
+      Looking to connect with me? You've come to the right place!
+    </p>
+    <p>
+      Feel free to reach out about anything here, be it questions, feedback, business opportunities, or just wanting to connect.
+      I'll get back to you as soon as I can.
+    </p>
     <form
       v-if="!success"
       ref="form"
@@ -70,14 +77,30 @@ async function handleSubmit(event: Event) {
       <p>{{ status }}</p>
       <button v-if="success" class="link-btn" @click="status = ''">Back to Form</button>
     </div>
+    <div class="calendar-info" v-show="false">
+      Looking to set a meeting?
+      <button class="link-btn">View Free/Busy Calendar</button>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .contact-me {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px 32px;
+  h1 {
+    grid-column: 1 / 3;
+    margin-bottom: 0;
+  }
+  p {
+    grid-column: 1 / 2;
+    margin: 0;
+  }
   form {
+    grid-column: 1 / 2;
     display: grid;
-    grid-template-columns: 150px 450px;
+    grid-template-columns: 1fr 3fr;
     gap: 16px;
     label {
       text-align: right;
@@ -104,9 +127,19 @@ async function handleSubmit(event: Event) {
     }
   }
 }
+
 .status {
-  .link-btn {
-    background-color: unset;
-  }
+  grid-column: 1 / 2;
+}
+
+.link-btn {
+  background-color: unset;
+}
+.calendar-info {
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 </style>

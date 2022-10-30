@@ -57,6 +57,7 @@
     width: 320px;
     max-width: 60vw;
     aspect-ratio: 2 / 3;
+    border-radius: 6px;
   }
   @media screen and (max-width: 670px) {
     flex-direction: column;
