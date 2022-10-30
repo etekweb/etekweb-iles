@@ -44,6 +44,8 @@
   --color-section-overlay: #f7f7f7;
   --color-navbar: #c8dae8;
   --color-navbar-title: var(--vt-c-black);
+
+  --color-form-bg: #e7eaec;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -65,6 +67,8 @@
     --color-section-overlay: #2b2b2b;
     --color-navbar: #475057;
     --color-navbar-title: var(--vt-c-white);
+
+    --color-form-bg: #52595e;
   }
 }
 
@@ -92,6 +96,10 @@ body {
 a {
   text-decoration: none;
   color: var(--color-link);
+}
+
+p {
+  line-height: 1.5;
 }
 
 @media (hover: hover) {
