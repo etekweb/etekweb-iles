@@ -56,6 +56,7 @@
   img {
     width: 320px;
     max-width: 60vw;
+    aspect-ratio: 2 / 3;
   }
   @media screen and (max-width: 670px) {
     flex-direction: column;

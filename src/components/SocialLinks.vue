@@ -85,6 +85,7 @@
 
     img {
       height: 70px;
+      aspect-ratio: 1 / 1;
     }
 
     h3 {
