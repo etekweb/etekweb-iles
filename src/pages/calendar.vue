@@ -9,7 +9,7 @@
       If you're looking to schedule a meeting with me, feel free to use this calendar as a reference for my availability.
       I do not guarantee this is 100% accurate, but I try to keep it as up-to-date as possible.
     </p>
-    <FreeBusyCalendar />
+    <FreeBusyCalendar client:load />
   </div>
 </template>
 

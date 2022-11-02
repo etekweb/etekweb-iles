@@ -11,9 +11,9 @@
     <div class="contact-form">
       <ContactForm client:idle />
     </div>
-    <div class="calendar-info" v-show="false">
+    <div class="calendar-info">
       Looking to set a meeting?
-      <button class="btn">View Free/Busy Calendar</button>
+      <RouterLink to="/calendar" target="_blank" class="btn">View Free/Busy Calendar</RouterLink>
     </div>
   </div>
 </template>
