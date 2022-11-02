@@ -1,6 +1,6 @@
-<script setup lang="ts">
-
-</script>
+<page>
+title: Calendar
+</page>
 
 <template>
   <div class="calendar-page">
