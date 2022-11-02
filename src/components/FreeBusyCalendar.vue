@@ -1,8 +1,10 @@
 <script lang="ts" setup>
-import '@fullcalendar/core/vdom' // solves problem with Vite
+// import '@fullcalendar/core/vdom.js' // solves problem with Vite
 import FullCalendar from '@fullcalendar/vue3';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
+
+const hasDocument = typeof document !== "undefined";
 
 const calendarOptions = {
   plugins: [timeGridPlugin, googleCalendarPlugin],
@@ -23,7 +25,7 @@ const calendarOptions = {
 </script>
 
 <template>
-  <FullCalendar :options="calendarOptions" />
+  <FullCalendar v-if="hasDocument" :options="calendarOptions" />
 </template>
 
 <style lang="scss">
