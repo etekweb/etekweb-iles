@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ContactForm: typeof import('./src/components/ContactForm.vue')['default']
+    FreeBusyCalendar: typeof import('./src/components/FreeBusyCalendar.vue')['default']
     Island: typeof import('./node_modules/iles/dist/client/app/components/Island.vue')['default']
     NavigationBar: typeof import('./src/components/NavigationBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
