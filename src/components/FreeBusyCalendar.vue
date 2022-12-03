@@ -35,10 +35,10 @@ const calendarOptions = {
   cursor: default;
 }
 .fc-event-title {
-  color: orange;
+  visibility: hidden;
 }
 .fc-event-title::before {
   content: 'busy';
-  color: black;
+  visibility: visible;
 }
 </style>
