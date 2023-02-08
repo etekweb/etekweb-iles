@@ -5,23 +5,26 @@
       <div class="group">
         <h3>Personal</h3>
         <a href="https://www.facebook.com/ethan.matzdorf" target="_blank">
-          <img src="@/assets/social-logos/facebook.png" alt="Facebook link" class="social-link" />
+          <img src="@/assets/social-logos/facebook.png" alt="Facebook link" title="Facebook" class="social-link" />
         </a>
-        <a href="https://www.instagram.com/ethan_m218" target="_blank">
-          <img src="@/assets/social-logos/instagram.png" alt="Instagram link" class="social-link" />
+        <a href="https://www.instagram.com/etekweb" target="_blank">
+          <img src="@/assets/social-logos/instagram.png" alt="Instagram link" title="Instagram" class="social-link" />
+        </a>
+        <a href="https://open.spotify.com/user/1245366398" target="_blank">
+          <img src="@/assets/social-logos/spotify.png" alt="Spotify link" title="Spotify" class="social-link" />
         </a>
         <a href="https://www.youtube.com/@etekweb" target="_blank">
-          <img src="@/assets/social-logos/youtube.png" alt="YouTube link" class="social-link" />
+          <img src="@/assets/social-logos/youtube.png" alt="YouTube link" title="YouTube" class="social-link" />
         </a>
       </div>
       <div class="vertical-divider" />
       <div class="group">
         <h3>Professional</h3>
         <a href="https://www.linkedin.com/in/ethan-matzdorf-9493b4137" target="_blank">
-          <img src="@/assets/social-logos/linkedin.png" alt="Linkedin link" class="social-link" />
+          <img src="@/assets/social-logos/linkedin.png" alt="Linkedin link" title="Linkedin" class="social-link" />
         </a>
         <a href="https://github.com/etekweb" target="_blank">
-          <img src="@/assets/social-logos/github.png" alt="GitHub link" class="social-link" />
+          <img src="@/assets/social-logos/github.png" alt="GitHub link" title="GitHub" class="social-link" />
         </a>
       </div>
     </div>
@@ -74,6 +77,11 @@
 
     .social-link {
       margin-top: 4px;
+      border-radius: 50%;
+      transition: box-shadow 0.2s linear;
+      &:hover {
+        box-shadow: 0px 0px 5px var(--color-text);
+      }
     }
     a:hover {
       background-color: unset;
