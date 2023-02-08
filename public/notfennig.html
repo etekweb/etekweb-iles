@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <title>Not Fennig: Check your screen resolution</title>
+    <meta name="description" content="If you are not Fennig (bearer of all screen resolution knowledge) 
+    and actually need to check your screen resolution, this is the tool for you!">
+</head>
+
+<body>
+    <div class="resolution-area">
+        <p>Your physical (native) resolution:</p>
+        <h1 id="resolutionwithratio"></h1>
+        
+        <p>Your logical resolution:</p>
+        <h1 id="resolution"></h1>
+    
+        <p>Your window dimensions:</p>
+        <h1 id="window"></h1>
+    </div>
+
+    <div style="border-bottom: 1px solid black; width: 100%"></div>
+
+    <div class="ip-area"> 
+        <p>Your IPv4 Address:</p>
+        <h1 id="ipv4"></h1>
+
+        <p>Your hostname:</p>
+        <h1 id="hostname"></h1>
+
+        <p>Your ISP:</p>
+        <h1 id="isp"></h1>
+    
+        <p>Your location:</p>
+        <h1 id="location"></h1>
+
+        <p>Your IPv6 Address:</p>
+        <h1 id="ipv6"></h1>
+    </div>
+
+</body>
+
+<script type="text/javascript">
+    window.onload = function() {
+        document.getElementById("resolutionwithratio").innerHTML = (screen.width * window.devicePixelRatio) + " x " + (screen.height * window.devicePixelRatio);
+        document.getElementById("resolution").innerHTML = screen.width + " x " + screen.height;
+        document.getElementById("window").innerHTML = window.innerWidth + " x " + window.innerHeight;
+        fetch('https://ipv4.wtfismyip.com/json').then(data => {
+            return data.json();
+        }).then(data => {
+            document.getElementById("ipv4").innerHTML = data.YourFuckingIPAddress;
+            document.getElementById("hostname").innerHTML = data.YourFuckingHostname;
+            document.getElementById("isp").innerHTML = data.YourFuckingISP;
+            document.getElementById("location").innerHTML = data.YourFuckingLocation;
+        });
+        fetch('https://wtfismyip.com/json').then(data => {
+            return data.json();
+        }).then(data => {
+            if (data.YourFuckingIPAddress.indexOf(':') !== -1) {
+                document.getElementById("ipv6").innerHTML = data.YourFuckingIPAddress;
+            } else {
+                document.getElementById("ipv6").innerHTML = 'NONE';
+            }
+        });
+    }
+    window.onresize = function() {
+        document.getElementById("window").innerHTML = window.innerWidth + " x " + window.innerHeight;
+    }
+</script>
+
+</html>

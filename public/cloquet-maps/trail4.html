@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+    	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="favicon-192.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+	<link rel="apple-touch-icon" href="favicon-57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="favicon-114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="favicon-72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="favicon-144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="favicon-60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="favicon-120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="favicon-76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="favicon-152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="favicon-144.png">
+	<meta name="msapplication-config" content="browserconfig.xml">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />  <meta name="googlebot" content="noindex, nofollow">
+  <script type="text/javascript" src="/js/lib/dummy.js"></script>
+    <script type="text/javascript">
+  document.addEventListener('touchmove', function (event) {
+  if (event.scale !== 1) { event.preventDefault(); }
+  }, false);
+    
+        var lastTouchEnd = 0;
+document.addEventListener('touchend', function (event) {
+  var now = (new Date()).getTime();
+  if (now - lastTouchEnd <= 300) {
+    event.preventDefault();
+  }
+  lastTouchEnd = now;
+}, false);
+    </script>
+  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+  <style type="text/css">
+    html,
+body {
+
+  overflow: hidden;
+  width: 100%;
+  /*height: 370px;*/
+  padding: 0;
+  margin: 0;
+}
+
+#map {
+  height: calc(100vh - 260px);
+  width: 100%;
+  overflow: hidden;
+  float: left;
+  border: thin solid #333;
+}
+  </style>
+  <title>Pine Valley Project</title>
+    
+</head>
+    <!-- <div style="position: absolute; top: 0; right: 0;"><a href="https://goo.gl/forms/QWTXTJZqs1kZB7jd2">Send Feedback</a></div> -->
+<body style="text-align: center; clear: both; font-family: 'Roboto Slab', serif;">
+    <img src="logo.jpg" style="margin-left: auto; margin-right: auto; display: block;" alt="City of Cloquet logo">
+    <h2>Pine Valley Interactive Map</h2>
+    <!-- We are currently fixing this service.<br>
+    The "location dot" overlay has been temporarily removed for this process.<br> -->
+    <br>
+    <!--<a href="https://drive.google.com/open?id=1IoczKe-ogOM_97XdWfXOz9ZzG3_sagPQ&usp=sharing">Test our new system here.</a>-->
+    <iframe id="map" src="https://www.google.com/maps/d/u/0/embed?mid=1IoczKe-ogOM_97XdWfXOz9ZzG3_sagPQ" width="100%" height="480"></iframe><br><Br>
+    <!-- If anyone has feedback or ideas about this system, don't hesitate to use the "Send Feedback" link above! -->
+    <!--
+    For best results, allow Location Services in your browser and for etekweb.net<br><br>
+  <div id="map"></div>
+<div id="capture"></div>
+<!-- Replace the value of the key parameter with your own API key. -->
+
+
+<script type='text/javascript'>//<![CDATA[
+
+var map;
+var src = 'https://etekweb.net/trail.kmz';
+var markerUser;
+
+function initMap() {
+            var trail1 = {lat: 46.704761, lng: -92.462568};
+                var trail2 = {lat: 46.702355, lng: -92.463866};
+            var trail3 = {lat: 46.703193, lng: -92.467246};
+                var trail4 = {lat: 46.702807, lng: -92.469805};
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 6,
+    mapTypeId: 'terrain',
+    gestureHandling: 'greedy'
+  });
+  infoWindow = new google.maps.InfoWindow;
+        var trail1 = new google.maps.Marker({
+          position: trail1,
+          map: map
+        });
+            var trail2 = new google.maps.Marker({
+          position: trail2,
+          map: map
+        });
+            var trail3 = new google.maps.Marker({
+          position: trail3,
+          map: map
+        });
+            var trail4 = new google.maps.Marker({
+          position: trail4,
+          map: map
+        });
+  var kmlLayer = new google.maps.KmlLayer(src, {
+    suppressInfoWindows: true,
+    preserveViewport: false,
+    map: map
+  });
+  //kmlLayer.addListener('click', function(event) {
+    //var content = event.featureData.infoWindowHtml;
+    //var testimonial = document.getElementById('capture');
+    //testimonial.innerHTML = content;
+  //});
+
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+        //var image = 'small-dot.png';
+        //var beachMarker = new google.maps.Marker({
+        //  position: pos,
+        //  map: map,
+        //  icon: image
+        //});
+      //infoWindow.setPosition(pos);
+      //infoWindow.setContent('Location found.');
+      //infoWindow.open(map);
+      //map.setCenter(pos);
+    
+    if (markerUser && markerUser.setPosition) {
+    // marker exists, move it
+    markerUser.setPosition(pos);
+    } else { // create the marker
+    markerUser = new google.maps.Marker({
+        position: pos,
+        map: map,
+        icon: 'small-dot.png'
+    });
+} }
+                                        , function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+      } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+    //setTimeout(function () {
+       //window.location.reload();
+   // }, 5000);
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+  }
+}
+
+//]]> 
+
+</script>
+
+  <script>
+  // tell the embed parent frame the height of the content
+  if (window.parent && window.parent.parent){
+    window.parent.parent.postMessage(["resultsFrame", {
+      height: document.body.getBoundingClientRect().height,
+      slug: "pp76zvfk"
+    }], "*")
+  }
+</script>
+    
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3T9fBMk4tbAYLSaSDrdAf0OXoUrZA0SQ&callback=initMap">
+
+
+</script>
+    
+    
+<!--<button onclick="google.maps.event.trigger(map, 'resize');">Click me</button>-->
+
+</body>
+
+</html>
