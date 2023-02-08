@@ -20,7 +20,9 @@ const calendarOptions = {
       textColor: 'black'
     }
   ],
-  initialView: 'timeGridWeek'
+  initialView: 'timeGridWeek',
+  slotMinTime: "08:00:00",
+  slotMaxTime: "21:00:00"
 };
 </script>
 
@@ -30,6 +32,15 @@ const calendarOptions = {
 
 <style lang="scss">
 // FullCalendar style overrides
+.fc {
+  height: 768px;
+  @media screen and (max-width: 640px) {
+    height: 787px;
+  }
+  @media screen and (max-width: 430px) {
+    height: 826px;
+  }
+}
 .fc-event {
   pointer-events: none;
   cursor: default;
