@@ -69,7 +69,7 @@
   }
 }
 .contact-cta {
-  padding: 48px 0;
+  margin: 48px 0;
   text-align: center;
   h2 {
     margin: 0 0 16px 0;
