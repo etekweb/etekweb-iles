@@ -53,7 +53,7 @@
 
   .social-links {
     display: grid;
-    grid-template-columns: 1fr 17px 1fr;
+    grid-template-columns: auto 8px auto;
     align-items: center;
     justify-content: center;
     gap: 16px;
@@ -71,7 +71,7 @@
       margin: 0 8px;
       height: 78px;
       opacity: 0.65;
-      background-color: var(--color-text);
+      // background-color: var(--color-text);
       flex-shrink: 0;
     }
 
@@ -93,7 +93,7 @@
     }
 
     h3 {
-      width: 90px;
+      // width: 90px;
       text-align: right;
       font-size: 16px;
       margin: 0 0 2px 0;
@@ -107,7 +107,7 @@
       }
     }
 
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 500px) {
       width: 100%;
       padding: 0 32px;
       .group {

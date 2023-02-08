@@ -38,6 +38,7 @@
   --section-gap: 160px;
 
   --color-link: #0062ff;
+  --color-link-hover: hsla(200, 100%, 37%, 0.2);
   --color-link-btn: #00658e;
   --color-link-btn-inverse: var(--vt-c-white);
 
@@ -61,6 +62,7 @@
     --color-text: var(--vt-c-text-dark-2);
 
     --color-link: #0087bd;
+    --color-link-hover: hsla(200, 100%, 37%, 0.2);
     --color-link-btn: #7cccfd;
     --color-link-btn-inverse: var(--vt-c-black);
 
@@ -111,7 +113,7 @@ p {
 
 @media (hover: hover) {
   a:hover {
-    background-color: hsla(200, 100%, 37%, 0.2);
+    background-color: var(--color-link-hover);
   }
 }
 
@@ -127,8 +129,16 @@ p {
   border: 1px solid var(--color-link-btn);
   border-radius: 6px;
   padding: 4px 8px;
+  cursor: pointer;
+}
+.btn:not(.major):hover {
+  background-color: var(--color-link-hover);
 }
 .btn.major {
   background-color: var(--color-link-btn);
   color: var(--color-link-btn-inverse);
+  transition: box-shadow 0.2s linear;
+}
+.btn.major:hover {
+  box-shadow: 0px 0px 5px var(--color-link-btn);
 }

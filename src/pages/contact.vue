@@ -54,9 +54,9 @@ title: Contact
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  .btn {
-    background-color: unset;
-  }
+  // .btn {
+  //   background-color: unset;
+  // }
   @media screen and (max-width: 670px) {
     grid-column: 1 / 2;
     align-items: center
