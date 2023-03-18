@@ -18,10 +18,10 @@
       <img src="@/assets/hero.jpeg" alt="Picture of Ethan Matzdorf standing in the woods" />
     </section>
     <SocialLinks />
-    <section class="contact-cta mobile-only">
+    <!-- <section class="contact-cta mobile-only">
       <h2>Check out my work</h2>
       <RouterLink class="link" to="/projects">View Projects</RouterLink>
-    </section>
+    </section> -->
     <section class="contact-cta">
       <h2>Want to connect?</h2>
       <RouterLink class="link" to="/contact">Contact Me</RouterLink>
