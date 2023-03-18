@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 
+const route = useRoute();
+
 const menuOpen = ref(false);
 
 const links = [
@@ -63,7 +65,7 @@ const links = [
           v-show="link.enabled"
           :to="link.path"
           class="link"
-          :class="{ major: $route.path === link.path }"
+          :class="{ major: route && route.path === link.path }"
           :key="link.path"
         >
           {{ link.name }}
