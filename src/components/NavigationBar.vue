@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { ref } from "vue";
+import { useRoute } from "vue-router";
 
 const route = useRoute();
 
@@ -42,7 +43,7 @@ const links = [
 <template>
   <div class="navigation-wrap">
     <nav class="navigation-bar" role="navigation">
-      <RouterLink to="/"><h2>Ethan Matzdorf</h2></RouterLink>
+      <a href="/"><h2>Ethan Matzdorf</h2></a>
       <div @click="menuOpen = !menuOpen" class="nav-menu-btn">
         <svg
           v-if="menuOpen"
@@ -60,16 +61,16 @@ const links = [
         </svg>
       </div>
       <div class="nav-links" :class="{ 'menu-open': menuOpen }">
-        <RouterLink
+        <a
           v-for="link of links"
           v-show="link.enabled"
-          :to="link.path"
+          :href="link.path"
           class="link"
           :class="{ major: route && route.path === link.path }"
           :key="link.path"
         >
           {{ link.name }}
-        </RouterLink>
+        </a>
       </div>
     </nav>
   </div>
