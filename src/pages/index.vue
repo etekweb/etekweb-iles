@@ -15,7 +15,7 @@
         </p>
         <RouterLink class="link" to="/about">More About Me</RouterLink>
       </div>
-      <img src="@/assets/hero.jpeg" alt="Picture of Ethan Matzdorf standing in the woods" />
+      <img src="@/assets/hero.jpg" alt="Picture of Ethan Matzdorf standing in the woods" />
     </section>
     <SocialLinks />
     <!-- <section class="contact-cta mobile-only">
