@@ -1,8 +1,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
-import { useRoute } from "vue-router";
 
-const route = useRoute();
+let path = typeof window !== "undefined" ? window.location.pathname : undefined;
 
 const menuOpen = ref(false);
 
@@ -64,9 +63,10 @@ const links = [
         <a
           v-for="link of links"
           v-show="link.enabled"
+          @click="menuOpen = false"
           :href="link.path"
           class="link"
-          :class="{ major: route && route.path === link.path }"
+          :class="{ major: path === link.path }"
           :key="link.path"
         >
           {{ link.name }}

@@ -1,5 +1,5 @@
 <template>
-  <NavigationBar client:media="screen and (max-width: 670px)" />
+  <NavigationBar client:load />
   <main>
     <slot />
   </main>
