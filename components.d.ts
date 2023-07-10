@@ -7,13 +7,17 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    BulkDownloadTool: typeof import('./src/components/BulkDownloadTool.vue')['default']
     ContactForm: typeof import('./src/components/ContactForm.vue')['default']
     FreeBusyCalendar: typeof import('./src/components/FreeBusyCalendar.vue')['default']
+    IPAddressTool: typeof import('./src/components/IPAddressTool.vue')['default']
     Island: typeof import('./node_modules/iles/dist/client/app/components/Island.vue')['default']
     NavigationBar: typeof import('./src/components/NavigationBar.vue')['default']
+    ResolutionTool: typeof import('./src/components/ResolutionTool.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SocialLinks: typeof import('./src/components/SocialLinks.vue')['default']
     TheFooter: typeof import('./src/components/TheFooter.vue')['default']
+    ToolSelection: typeof import('./src/components/ToolSelection.vue')['default']
   }
 }

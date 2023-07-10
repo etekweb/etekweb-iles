@@ -27,6 +27,11 @@ const links = [
     enabled: false,
   },
   {
+    path: "/tools",
+    name: "Tools",
+    enabled: true,
+  },
+  {
     path: "/blog",
     name: "Blog",
     enabled: false,
