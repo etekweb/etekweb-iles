@@ -29,7 +29,7 @@ const links = [
   {
     path: "/tools",
     name: "Tools",
-    enabled: true,
+    enabled: false,
   },
   {
     path: "/blog",
