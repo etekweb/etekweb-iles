@@ -1,6 +1,6 @@
-<script setup lang="ts">
-import ToolSelection from '@/components/ToolSelection.vue';
-</script>
+<page>
+  title: Tools
+</page>
 
 <template>
   <div class="tools-page">
