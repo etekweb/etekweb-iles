@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-// import ResolutionTool from '@/components/ResolutionTool.vue';
-// import IPAddressTool from '@/components/IPAddressTool.vue';
 
 const currentTab = ref(0);
 </script>
@@ -14,12 +12,12 @@ const currentTab = ref(0);
       <a href="#" @click.prevent="currentTab = 2" :class="{ selected: currentTab === 2 }">IP Address</a>
       <a href="#" @click.prevent="currentTab = 3" :class="{ selected: currentTab === 3 }">Bulk Download</a>
     </div>
-    <!-- <div class="rhs">
+    <div class="rhs">
       <p class="no-tool" v-show="currentTab === 0">Select a tool from the left sidebar</p>
       <ResolutionTool v-show="currentTab === 1" />
       <IPAddressTool v-show="currentTab === 2" />
       <BulkDownloadTool v-show="currentTab === 3" />
-    </div> -->
+    </div>
   </div>
 </template>
 
