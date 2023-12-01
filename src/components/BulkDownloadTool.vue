@@ -7,8 +7,15 @@ const { saveAs } = FileSaver;
 const urlBox = ref('');
 const shouldGenerateZIP = ref(true);
 
+const numFiles = ref(0);
+const numSuccess = ref(0);
+const numFail = ref(0);
+
 async function startDownload() {
-  const urls = urlBox.value.split('\n');
+  const urls = urlBox.value.split('\n').filter(n => n);
+  numFiles.value = urls.length;
+  numSuccess.value = 0;
+  numFail.value = 0;
   // Create empty zip folder if needed
   let zip: JSZip | undefined;
   if (shouldGenerateZIP.value) {
@@ -21,17 +28,20 @@ async function startDownload() {
     const urlParts = url.split('/');
     const targetFileName = urlParts[urlParts.length - 1];
     // Get file by URL
-    await fetch(url).then(data => {
-      return data.blob();
-    }).then(data => {
+    try {
+      const data = await fetch(url);
+      const blob = await data.blob();
       if (zip) {
         // Add to ZIP folder
-        zip.file(targetFileName, data, { binary: true });
+        zip.file(targetFileName, blob, { binary: true });
       } else {
         // Trigger individual file download
-        saveAs(data, targetFileName);
+        saveAs(blob, targetFileName);
       }
-    });
+      numSuccess.value += 1;
+    } catch (e) {
+      numFail.value += 1;
+    }
   }
   // Generate final ZIP file
   if (zip) {
@@ -62,6 +72,10 @@ async function startDownload() {
       </p>
     </fieldset>
     <button @click="startDownload">Download Files</button>
+    <div v-if="numFiles">
+      Downloaded {{ numSuccess }} / {{ numFiles }} ({{ numFail }} failed)<br />
+      Full details in Dev Tools - Network tab
+    </div>
   </div>
 </template>
 
