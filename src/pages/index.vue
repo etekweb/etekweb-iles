@@ -13,7 +13,7 @@
           I am currently working at 24G, a digital experience agency, as a JavaScript
           developer.
         </p>
-        <RouterLink class="link" to="/about">More About Me</RouterLink>
+        <!-- <RouterLink class="link" to="/about">More About Me</RouterLink> -->
       </div>
       <img src="@/assets/hero.jpg" alt="Picture of Ethan Matzdorf standing in front of a blue brick wall" />
     </section>
