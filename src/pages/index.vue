@@ -10,8 +10,8 @@
           contain.
         </p>
         <p>
-          I am currently working at 24G, a digital experience agency, as a JavaScript
-          developer.
+          I am currently working as a full-stack developer building unique experiences for brands,
+          primarily using JavaScript.
         </p>
         <RouterLink class="link" to="/about">More About Me</RouterLink>
       </div>
