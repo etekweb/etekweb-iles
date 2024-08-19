@@ -13,7 +13,7 @@
           I am currently working as a full-stack developer building unique experiences for brands,
           primarily using JavaScript.
         </p>
-        <RouterLink class="link" to="/about">More About Me</RouterLink>
+        <!-- <RouterLink class="link" to="/about">More About Me</RouterLink> -->
       </div>
       <img src="@/assets/hero.jpg" alt="Picture of Ethan Matzdorf standing in front of a blue brick wall" />
     </section>

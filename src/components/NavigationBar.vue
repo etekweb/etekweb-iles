@@ -14,12 +14,12 @@ const links = [
   {
     path: "/about",
     name: "About",
-    enabled: true,
+    enabled: false,
   },
   {
     path: "/projects",
     name: "Projects",
-    enabled: true,
+    enabled: false,
   },
   {
     path: "/services",
