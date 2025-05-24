@@ -19,5 +19,6 @@ declare module '@vue/runtime-core' {
     SocialLinks: typeof import('./src/components/SocialLinks.vue')['default']
     TheFooter: typeof import('./src/components/TheFooter.vue')['default']
     ToolSelection: typeof import('./src/components/ToolSelection.vue')['default']
+    UUIDGeneratorTool: typeof import('./src/components/UUIDGeneratorTool.vue')['default']
   }
 }

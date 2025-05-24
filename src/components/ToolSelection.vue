@@ -1,22 +1,63 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 
-const currentTab = ref(0);
+const tabs = [
+  { id: 'none', name: 'None' },
+  { id: 'resolution', name: 'Screen Resolution' },
+  { id: 'ip', name: 'IP Address' },
+  { id: 'bulkDownload', name: 'Bulk Download' },
+  { id: 'uuidGenerator', name: 'UUID Generator' },
+];
+
+const currentTab = ref('none');
+
+// Helper to get query parameters from the URL
+function getQueryParam(param: string): string | null {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+// Helper to set query parameters in the URL
+function setQueryParam(param: string, value: string) {
+  const url = new URL(window.location.href);
+  url.searchParams.set(param, value);
+  window.history.pushState({}, '', url.toString());
+}
+
+// Sync currentTab with the URL query parameter
+onMounted(() => {
+  const tabFromQuery = getQueryParam('tab');
+  if (tabFromQuery && tabs.some(tab => tab.id === tabFromQuery)) {
+    currentTab.value = tabFromQuery;
+  }
+});
+
+// Update the URL query parameter when currentTab changes
+watch(currentTab, (newTab) => {
+  setQueryParam('tab', newTab);
+});
 </script>
 
 <template>
   <div class="tools-page">
     <div class="lhs">
       <h2>Tools</h2>
-      <a href="#" @click.prevent="currentTab = 1" :class="{ selected: currentTab === 1 }">Screen Resolution</a>
-      <a href="#" @click.prevent="currentTab = 2" :class="{ selected: currentTab === 2 }">IP Address</a>
-      <a href="#" @click.prevent="currentTab = 3" :class="{ selected: currentTab === 3 }">Bulk Download</a>
+      <a
+        v-for="tab in tabs.slice(1)" 
+        :key="tab.id" 
+        href="#" 
+        @click.prevent="currentTab = tab.id" 
+        :class="{ selected: currentTab === tab.id }"
+      >
+        {{ tab.name }}
+      </a>
     </div>
     <div class="rhs">
-      <p class="no-tool" v-show="currentTab === 0">Select a tool from the left sidebar</p>
-      <ResolutionTool v-show="currentTab === 1" />
-      <IPAddressTool v-show="currentTab === 2" />
-      <BulkDownloadTool v-show="currentTab === 3" />
+      <p class="no-tool" v-show="currentTab === 'none'">Select a tool from the left sidebar</p>
+      <ResolutionTool v-show="currentTab === 'resolution'" />
+      <IPAddressTool v-show="currentTab === 'ip'" />
+      <BulkDownloadTool v-show="currentTab === 'bulkDownload'" />
+      <UUIDGeneratorTool v-show="currentTab === 'uuidGenerator'" />
     </div>
   </div>
 </template>

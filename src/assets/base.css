@@ -130,6 +130,7 @@ p {
   border-radius: 6px;
   padding: 4px 8px;
   cursor: pointer;
+  background-color: rgba(0,0,0,0);
 }
 .btn:not(.major):hover {
   background-color: var(--color-link-hover);
