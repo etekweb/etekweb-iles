@@ -53,11 +53,11 @@ watch(currentTab, (newTab) => {
       </a>
     </div>
     <div class="rhs">
-      <p class="no-tool" v-show="currentTab === 'none'">Select a tool from the left sidebar</p>
-      <ResolutionTool v-show="currentTab === 'resolution'" />
-      <IPAddressTool v-show="currentTab === 'ip'" />
-      <BulkDownloadTool v-show="currentTab === 'bulkDownload'" />
-      <UUIDGeneratorTool v-show="currentTab === 'uuidGenerator'" />
+      <ResolutionTool v-if="currentTab === 'resolution'" />
+      <IPAddressTool v-else-if="currentTab === 'ip'" />
+      <BulkDownloadTool v-else-if="currentTab === 'bulkDownload'" />
+      <UUIDGeneratorTool v-else-if="currentTab === 'uuidGenerator'" />
+      <p class="no-tool" v-else="currentTab === 'none'">Select a tool from the left sidebar</p>
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 
 const ipv4 = ref('');
 const hostname = ref('');
@@ -33,10 +33,14 @@ onMounted(() => {
   getIPv4Data();
   getIPv6Data();
 });
+
+const loaded = computed(() => {
+  return ipv4.value !== '' || hostname.value !== '' || isp.value !== '' || location.value !== '' || ipv6.value !== '';
+});
 </script>
 
 <template>
-  <div class="ip-address-tool">
+  <div class="ip-address-tool" v-if="loaded">
     <p>Your IPv4 Address:</p>
     <h1>{{ ipv4 }}</h1>
 
@@ -51,6 +55,9 @@ onMounted(() => {
 
     <p>Your IPv6 Address:</p>
     <h1>{{ ipv6 }}</h1>
+  </div>
+  <div v-else>
+    <p>Loading...</p>
   </div>
 </template>
 
