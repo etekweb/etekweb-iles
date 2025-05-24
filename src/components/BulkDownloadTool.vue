@@ -71,7 +71,7 @@ async function startDownload() {
         Note: You may need to manually allow multiple file downloads in your browser
       </p>
     </fieldset>
-    <button @click="startDownload">Download Files</button>
+    <button class="btn major" @click="startDownload">Download Files</button>
     <div v-if="numFiles">
       Downloaded {{ numSuccess }} / {{ numFiles }} ({{ numFail }} failed)<br />
       Full details in Dev Tools - Network tab
