@@ -16,7 +16,6 @@ const isDarkMode = computed(() => {
 });
 
 const form = ref<HTMLFormElement>();
-const turnstile = ref<any>(null);
 const turnstileToken = ref<string>("");
 async function handleSubmit(event: Event) {
   event.preventDefault();
@@ -36,7 +35,6 @@ async function handleSubmit(event: Event) {
         success.value = true;
         status.value = "Thanks for your submission!";
         form?.value?.reset();
-        turnstile.value.reset();
       } else {
         success.value = false;
         status.value =
@@ -58,7 +56,15 @@ async function handleSubmit(event: Event) {
 </script>
 
 <template>
+  <div v-if="status" class="status">
+    <h2>{{ success ? "Form submitted!" : "Sorry, there was an error." }}</h2>
+    <p>{{ status }}</p>
+    <button v-if="success" class="btn" @click="status = ''">
+      Back to Form
+    </button>
+  </div>
   <form
+    v-else
     @submit="handleSubmit"
     method="POST"
     action="https://formspree.io/f/mjvzaldg"
@@ -72,20 +78,12 @@ async function handleSubmit(event: Event) {
     <label for="message">Your Message</label>
     <textarea rows="8" name="message" id="message" required></textarea>
     <VueTurnstile
-      ref="turnstile"
       class="g-recaptcha"
       site-key="0x4AAAAAACNHMg0iGm7LTOJf"
       v-model="turnstileToken"
     />
     <button class="btn major" type="submit">Submit</button>
   </form>
-  <div v-if="status" class="status">
-    <h2>{{ success ? "Form submitted!" : "Sorry, there was an error." }}</h2>
-    <p>{{ status }}</p>
-    <button v-if="success" class="btn" @click="status = ''">
-      Back to Form
-    </button>
-  </div>
 </template>
 
 <style lang="scss" scoped>
