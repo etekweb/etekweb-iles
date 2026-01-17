@@ -16,6 +16,7 @@ const isDarkMode = computed(() => {
 });
 
 const form = ref<HTMLFormElement>();
+const turnstile = ref<any>(null);
 const turnstileToken = ref<string>("");
 async function handleSubmit(event: Event) {
   event.preventDefault();
@@ -35,6 +36,7 @@ async function handleSubmit(event: Event) {
         success.value = true;
         status.value = "Thanks for your submission!";
         form?.value?.reset();
+        turnstile.value.reset();
       } else {
         success.value = false;
         status.value =
@@ -70,6 +72,7 @@ async function handleSubmit(event: Event) {
     <label for="message">Your Message</label>
     <textarea rows="8" name="message" id="message" required></textarea>
     <VueTurnstile
+      ref="turnstile"
       class="g-recaptcha"
       site-key="0x4AAAAAACNHMg0iGm7LTOJf"
       v-model="turnstileToken"
