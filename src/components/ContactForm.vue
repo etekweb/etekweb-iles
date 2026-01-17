@@ -1,48 +1,57 @@
 <script setup lang="ts">
-import { VueRecaptcha } from 'vue-recaptcha';
-import { computed, ref } from 'vue';
+import VueTurnstile from "vue-turnstile";
+import { computed, ref } from "vue";
 
 const success = ref(false);
-const status = ref('');
+const status = ref("");
 
 const isDarkMode = computed(() => {
   if (typeof window !== "undefined") {
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    );
   }
   return false;
 });
 
 const form = ref<HTMLFormElement>();
+const turnstileToken = ref<string>("");
 async function handleSubmit(event: Event) {
   event.preventDefault();
   success.value = false;
-  status.value = '';
+  status.value = "";
   const target = event.target as HTMLFormElement;
   const data = new FormData(target);
   fetch(target.action, {
     method: form?.value?.method,
     body: data,
     headers: {
-      'Accept': 'application/json'
-    }
-  }).then(response => {
-    if (response.ok) {
-      success.value = true;
-      status.value = 'Thanks for your submission!';
-      form?.value?.reset()
-    } else {
+      Accept: "application/json",
+    },
+  })
+    .then((response) => {
+      if (response.ok) {
+        success.value = true;
+        status.value = "Thanks for your submission!";
+        form?.value?.reset();
+      } else {
+        success.value = false;
+        status.value =
+          "Please confirm the above form is filled out completely, then try again.";
+        response.json().then((data) => {
+          if (Object.hasOwn(data, "errors")) {
+            status.value = data["errors"]
+              .map((error: any) => error["message"])
+              .join(", ");
+          }
+        });
+      }
+    })
+    .catch((error) => {
       success.value = false;
-      status.value = 'Please confirm the above form is filled out completely, then try again.';
-      response.json().then(data => {
-        if (Object.hasOwn(data, 'errors')) {
-          status.value = data["errors"].map((error: any) => error["message"]).join(", ");
-        }
-      })
-    }
-  }).catch(error => {
-    success.value = false;
-    status.value = 'Please check your Internet connection and try again.';
-  });
+      status.value = "Please check your Internet connection and try again.";
+    });
 }
 </script>
 
@@ -55,19 +64,24 @@ async function handleSubmit(event: Event) {
     ref="form"
   >
     <label for="full-name">Your Name</label>
-    <input type="text" name="name" id="full-name" required>
+    <input type="text" name="name" id="full-name" required />
     <label for="email-address">Your Email Address</label>
-    <input type="email" name="_replyto" id="email-address" required>
+    <input type="email" name="_replyto" id="email-address" required />
     <label for="message">Your Message</label>
     <textarea rows="8" name="message" id="message" required></textarea>
-    <VueRecaptcha class="g-recaptcha" sitekey="6LfCCLUUAAAAADRkxjo3gHcVXlZGouubHmdEpxYa"
-      :theme="isDarkMode ? 'dark' : 'light'" />
+    <VueTurnstile
+      class="g-recaptcha"
+      site-key="0x4AAAAAACNHMg0iGm7LTOJf"
+      v-model="turnstileToken"
+    />
     <button class="btn major" type="submit">Submit</button>
   </form>
   <div v-if="status" class="status">
-    <h2>{{ success ? 'Form submitted!' : 'Sorry, there was an error.' }}</h2>
+    <h2>{{ success ? "Form submitted!" : "Sorry, there was an error." }}</h2>
     <p>{{ status }}</p>
-    <button v-if="success" class="btn" @click="status = ''">Back to Form</button>
+    <button v-if="success" class="btn" @click="status = ''">
+      Back to Form
+    </button>
   </div>
 </template>
 
