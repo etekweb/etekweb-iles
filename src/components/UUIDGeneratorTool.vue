@@ -18,10 +18,11 @@ const copyBtnText = computed(() => {
 })
 
 function generateBulkUUIDs() {
-    uuidBulk.value = '';
+    const uuids: string[] = [];
     for (let i = 0; i < numBulkUUIDs.value; i++) {
-        uuidBulk.value += `${v4()}\n`;
+        uuids.push(v4());
     }
+    uuidBulk.value = uuids.join('\n');
     if (copiedBulkTimeout) {
         clearTimeout(copiedBulkTimeout);
     }
