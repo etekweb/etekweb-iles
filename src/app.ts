@@ -23,7 +23,7 @@ export default defineApp({
         },
         {
           property: "og:image",
-          content: "/etekweb-share-card.jpg",
+          content: "/etekweb-share-card.png",
         },
         {
           name: "twitter:card",
@@ -31,7 +31,7 @@ export default defineApp({
         },
         {
           name: "twitter:image",
-          content: "/etekweb-share-card.jpg",
+          content: "/etekweb-share-card.png",
         },
         {
           name: "twitter:title",
