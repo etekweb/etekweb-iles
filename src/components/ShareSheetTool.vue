@@ -13,6 +13,11 @@ const includeURL = ref(true);
 const includeFiles = ref(true);
 const fileInputRef = ref<HTMLInputElement | null>(null);
 
+function getParsedShareText(value: string) {
+  // Normalize all line endings so share targets receive consistent newlines.
+  return value.replace(/\r\n?/g, "\n");
+}
+
 function syncInputWithFiles() {
   const input = fileInputRef.value;
   if (!input) return;
@@ -47,7 +52,7 @@ function testShareSupport() {
     obj.title = title.value;
   }
   if (includeText.value) {
-    obj.text = text.value;
+    obj.text = getParsedShareText(text.value);
   }
   if (includeURL.value) {
     obj.url = url.value;
@@ -68,7 +73,7 @@ function attemptShare() {
     obj.title = title.value;
   }
   if (includeText.value) {
-    obj.text = text.value;
+    obj.text = getParsedShareText(text.value);
   }
   if (includeURL.value) {
     obj.url = url.value;
@@ -115,7 +120,12 @@ onMounted(async () => {
         <!-- text -->
         <input id="text" type="checkbox" v-model="includeText" />
         <label for="text">Text</label>
-        <input type="text" v-model="text" :disabled="!includeText" />
+        <textarea
+          id="text-input"
+          v-model="text"
+          :disabled="!includeText"
+          rows="4"
+        />
         <!-- url -->
         <input id="url" type="checkbox" v-model="includeURL" />
         <label for="url">URL</label>
@@ -154,9 +164,16 @@ onMounted(async () => {
   grid-template-columns: auto auto minmax(0, 1fr);
   max-width: 300px;
   gap: 8px;
+  align-items: start;
 }
 .field-wrap input[type="text"] {
   width: 100%;
+  font-family: inherit;
+}
+.field-wrap textarea {
+  width: 100%;
+  resize: vertical;
+  font-family: inherit;
 }
 .test-with-data-btns {
   display: flex;
