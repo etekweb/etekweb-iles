@@ -16,6 +16,7 @@ declare module 'vue' {
     ResolutionTool: typeof import('./src/components/ResolutionTool.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ShareSheetTool: typeof import('./src/components/ShareSheetTool.vue')['default']
     SocialLinks: typeof import('./src/components/SocialLinks.vue')['default']
     TheFooter: typeof import('./src/components/TheFooter.vue')['default']
     ToolSelection: typeof import('./src/components/ToolSelection.vue')['default']

@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { ref, watch, onMounted } from 'vue';
+import { ref, watch, onMounted } from "vue";
 
 const tabs = [
-  { id: 'none', name: 'None' },
-  { id: 'resolution', name: 'Screen Resolution' },
-  { id: 'ip', name: 'IP Address' },
-  { id: 'bulkDownload', name: 'Bulk Download' },
-  { id: 'uuidGenerator', name: 'UUID Generator' },
+  { id: "none", name: "None" },
+  { id: "resolution", name: "Screen Resolution" },
+  { id: "ip", name: "IP Address" },
+  { id: "bulkDownload", name: "Bulk Download" },
+  { id: "uuidGenerator", name: "UUID Generator" },
+  { id: "shareSheet", name: "Share Sheet" },
 ];
 
-const currentTab = ref('none');
+const currentTab = ref("none");
 
 // Helper to get query parameters from the URL
 function getQueryParam(param: string): string | null {
@@ -21,20 +22,20 @@ function getQueryParam(param: string): string | null {
 function setQueryParam(param: string, value: string) {
   const url = new URL(window.location.href);
   url.searchParams.set(param, value);
-  window.history.pushState({}, '', url.toString());
+  window.history.pushState({}, "", url.toString());
 }
 
 // Sync currentTab with the URL query parameter
 onMounted(() => {
-  const tabFromQuery = getQueryParam('tab');
-  if (tabFromQuery && tabs.some(tab => tab.id === tabFromQuery)) {
+  const tabFromQuery = getQueryParam("tab");
+  if (tabFromQuery && tabs.some((tab) => tab.id === tabFromQuery)) {
     currentTab.value = tabFromQuery;
   }
 });
 
 // Update the URL query parameter when currentTab changes
 watch(currentTab, (newTab) => {
-  setQueryParam('tab', newTab);
+  setQueryParam("tab", newTab);
 });
 </script>
 
@@ -43,10 +44,10 @@ watch(currentTab, (newTab) => {
     <div class="lhs">
       <h2>Tools</h2>
       <a
-        v-for="tab in tabs.slice(1)" 
-        :key="tab.id" 
-        href="#" 
-        @click.prevent="currentTab = tab.id" 
+        v-for="tab in tabs.slice(1)"
+        :key="tab.id"
+        href="#"
+        @click.prevent="currentTab = tab.id"
         :class="{ selected: currentTab === tab.id }"
       >
         {{ tab.name }}
@@ -57,7 +58,10 @@ watch(currentTab, (newTab) => {
       <IPAddressTool v-else-if="currentTab === 'ip'" />
       <BulkDownloadTool v-else-if="currentTab === 'bulkDownload'" />
       <UUIDGeneratorTool v-else-if="currentTab === 'uuidGenerator'" />
-      <p class="no-tool" v-else="currentTab === 'none'">Select a tool from the left sidebar</p>
+      <ShareSheetTool v-else-if="currentTab === 'shareSheet'" />
+      <p class="no-tool" v-else="currentTab === 'none'">
+        Select a tool from the left sidebar
+      </p>
     </div>
   </div>
 </template>
