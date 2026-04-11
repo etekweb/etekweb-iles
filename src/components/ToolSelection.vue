@@ -8,6 +8,7 @@ const tabs = [
   { id: "bulkDownload", name: "Bulk Download" },
   { id: "uuidGenerator", name: "UUID Generator" },
   { id: "shareSheet", name: "Share Sheet" },
+  { id: "specialCharacter", name: "Special Characters" },
 ];
 
 const currentTab = ref("none");
@@ -59,6 +60,7 @@ watch(currentTab, (newTab) => {
       <BulkDownloadTool v-else-if="currentTab === 'bulkDownload'" />
       <UUIDGeneratorTool v-else-if="currentTab === 'uuidGenerator'" />
       <ShareSheetTool v-else-if="currentTab === 'shareSheet'" />
+      <SpecialCharacterTool v-else-if="currentTab === 'specialCharacter'" />
       <p class="no-tool" v-else="currentTab === 'none'">
         Select a tool from the left sidebar
       </p>

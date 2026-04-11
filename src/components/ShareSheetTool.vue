@@ -155,6 +155,7 @@ onMounted(async () => {
 <style scoped>
 .share-sheet-tool fieldset {
   margin: 16px 0;
+  max-width: 700px;
 }
 .share-sheet-tool button {
   padding: 4px 8px;
@@ -162,7 +163,6 @@ onMounted(async () => {
 .field-wrap {
   display: grid;
   grid-template-columns: auto auto minmax(0, 1fr);
-  max-width: 300px;
   gap: 8px;
   align-items: start;
 }

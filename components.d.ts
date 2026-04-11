@@ -18,6 +18,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     ShareSheetTool: typeof import('./src/components/ShareSheetTool.vue')['default']
     SocialLinks: typeof import('./src/components/SocialLinks.vue')['default']
+    SpecialCharacterTool: typeof import('./src/components/SpecialCharacterTool.vue')['default']
     TheFooter: typeof import('./src/components/TheFooter.vue')['default']
     ToolSelection: typeof import('./src/components/ToolSelection.vue')['default']
     UUIDGeneratorTool: typeof import('./src/components/UUIDGeneratorTool.vue')['default']
