@@ -257,14 +257,17 @@ onMounted(() => {
         <option value="macos">macOS</option>
         <option value="">Other</option>
       </select>
-      <small class="disclaimer" v-if="platform === 'windows'">
+    </div>
+    <div class="disclaimer">
+      <small v-if="platform === 'windows'">
         Full-size keyboard required for keyboard shortcuts. Use the numeric
         keypad for entering codes.<br />
-        Key codes above are from US English layout. May vary with other layouts.
-      </small>
-      <small class="disclaimer" v-else-if="platform === 'macos'">
-        Keyboard shortcuts above are from US English layout. May vary with other
+        Key codes listed are from US English layout. May vary with other
         layouts.
+      </small>
+      <small v-else-if="platform === 'macos'">
+        Keyboard shortcuts listed are from US English layout. May vary with
+        other layouts.
       </small>
     </div>
     <template v-for="(group, i) in characterSets" :key="i">
@@ -343,9 +346,11 @@ onMounted(() => {
   border: 1px solid var(--color-text);
   color: var(--color-text);
 }
-.platform-select small {
-  display: block;
+.disclaimer {
   margin-top: 12px;
   max-width: 700px;
+}
+.disclaimer small {
+  display: block;
 }
 </style>
