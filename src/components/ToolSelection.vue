@@ -9,6 +9,7 @@ const tabs = [
   { id: "uuidGenerator", name: "UUID Generator" },
   { id: "shareSheet", name: "Share Sheet" },
   { id: "specialCharacter", name: "Special Characters" },
+  { id: "svgClipPathRemoval", name: "SVG Clip Path Removal" },
 ];
 
 const currentTab = ref("none");
@@ -61,6 +62,7 @@ watch(currentTab, (newTab) => {
       <UUIDGeneratorTool v-else-if="currentTab === 'uuidGenerator'" />
       <ShareSheetTool v-else-if="currentTab === 'shareSheet'" />
       <SpecialCharacterTool v-else-if="currentTab === 'specialCharacter'" />
+      <SVGClipPathRemovalTool v-else-if="currentTab === 'svgClipPathRemoval'" />
       <p class="no-tool" v-else="currentTab === 'none'">
         Select a tool from the left sidebar
       </p>
